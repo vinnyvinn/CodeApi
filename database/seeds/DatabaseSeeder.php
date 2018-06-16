@@ -29,8 +29,8 @@ class DatabaseSeeder extends Seeder
     	$codesQuantity=1000;
         
         factory(User::class,$usersQuantity)->create();
-        factory(Promocode::class,$codesQuantity)->create();
         factory(Ride::class,$ridesQuantity)->create();
+        factory(Promocode::class,$codesQuantity)->create();
         factory(Event::class,$eventssQuantity)->create()->each(
             function($code){
                 $promocodes = Promocode::all()->random(mt_rand(1,5))->pluck('id');

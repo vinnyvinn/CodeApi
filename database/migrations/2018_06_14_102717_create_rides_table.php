@@ -18,10 +18,9 @@ class CreateRidesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('amount');
-            $table->integer('promocode_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('promocode_id')->references('id')->on('promocodes');
+            
         });
     }
 

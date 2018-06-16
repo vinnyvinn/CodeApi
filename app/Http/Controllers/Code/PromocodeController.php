@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Code;
 
 use App\User;
 use App\Promocode;
+use App\Ride;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 
@@ -41,6 +42,7 @@ class PromocodeController extends ApiController
         $this->validate($request,$rules);
         $newCode = $request->all();
         $newCode['user_id'] = User::all()->random()->id;
+        $newCode['ride_id'] = Ride::all()->random()->id;
         Promocode::create($newCode);
 
         return response()->json(['data' => $newCode],201);

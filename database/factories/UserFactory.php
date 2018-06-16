@@ -32,6 +32,7 @@ $factory->define(Promocode::class, function (Faker $faker) {
         'radius' => rand(10,1000),
         'status' => $faker->randomElement([Promocode::CODE_ACTIVE,Promocode::CODE_INACTIVE]),
         'user_id' => User::all()->random()->id,
+        'ride_id' => Ride::all()->random()->id,
         
     ];
 });
@@ -41,8 +42,7 @@ $factory->define(Ride::class, function (Faker $faker) {
         'name' => $faker->word,
         'description' => $faker->paragraph(1),
         'amount' => $faker->numberBetween(50,1000),
-        'promocode_id' => Promocode::all()->random()->id,
-        
+                
     ];
 });
 

@@ -18,10 +18,12 @@ class CreatePromocodesTable extends Migration
             $table->string('code');
             $table->string('radius');
             $table->integer('user_id')->unsigned();
+             $table->integer('ride_id')->unsigned();
             $table->string('status')->default(Promocode::CODE_INACTIVE);
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users');
+             $table->foreign('ride_id')->references('id')->on('rides');
             
         });
 

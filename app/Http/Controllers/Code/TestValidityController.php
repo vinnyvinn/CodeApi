@@ -19,7 +19,7 @@ class TestValidityController extends ApiController
     public function store(Request $request)
     {
 
-        
+
 
         $rules = [
           'origin' => 'required',
@@ -32,15 +32,12 @@ class TestValidityController extends ApiController
       $code = Promocode::all()->random()->radius;
       $checkStatus = Promocode::where('radius','=',$code)->first();
       if($checkStatus->status == 'active'){
-       
+
        return $this->showOne($checkStatus);
 
    }
-   
-   return $this->errorResponse('Sorry, the promotion code specified is not valid, try again later.',404);
-   
 
-   
+   return $this->errorResponse('Sorry, the promotion code specified is not valid, try again later.',404);
 
 
 }

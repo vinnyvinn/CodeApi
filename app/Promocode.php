@@ -14,7 +14,8 @@ class Promocode extends Model
         'code',
         'radius',
         'status',
-        'user_id'
+        'user_id',
+        'ride_id'
     ];
     protected $table = 'promocodes';
     public function isActive(){
